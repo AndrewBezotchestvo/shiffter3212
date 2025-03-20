@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 877085757559273667}
   - component: {fileID: 6796375677358165261}
   m_Layer: 0
-  m_Name: GenerateCube
+  m_Name: GenerateCubeMiddle
   m_TagString: ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -2,6 +2,7 @@ using System.Collections;
 using System;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class PlayerMove : MonoBehaviour
 {
@@ -16,16 +17,23 @@ public class PlayerMove : MonoBehaviour
     private bool _isGround;
     private bool _isJump;
 
+    public float _currentSpeed;
+    private Vector3 _previos_position;
+
     private void Start()
     {
         _movement = new Vector3(0, -1, _speed);
         _isGround = true;
         _isJump = false;
         _rb = GetComponent<Rigidbody>();
+
     }
 
     private void Update()
     {
+        _currentSpeed = (transform.position - _previos_position).magnitude * 1000f;
+        
+        _previos_position = transform.position;
         _distance.text = Convert.ToString(Mathf.Round(transform.position.z));
         if (Input.GetKeyDown(KeyCode.Space) && _isGround && !_isJump)
         {
@@ -34,6 +42,12 @@ public class PlayerMove : MonoBehaviour
             _isJump = true;
             StartCoroutine(rotateCube());
         }
+
+        if(_currentSpeed < 2 && Time.timeScale == 1f && transform.position.z > 0)
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        }
+
     }
 
     private void FixedUpdate()

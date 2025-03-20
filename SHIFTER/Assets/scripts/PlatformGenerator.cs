@@ -4,7 +4,9 @@ using System.Collections;
 
 public class PlatformGenerator : MonoBehaviour
 {
-    [SerializeField] private GameObject _spawnCube;
+    [SerializeField] private GameObject _spawnCubeRight;
+    [SerializeField] private GameObject _spawnCubeMiddle;
+    [SerializeField] private GameObject _spawnCubeLeft;
 
     private List<GameObject> _spawnedCubes;
     private List<GameObject> _spawnedCubesRow;
@@ -29,7 +31,24 @@ public class PlatformGenerator : MonoBehaviour
 
             for (int j = 0; j < rows; j++) 
             {
-                GameObject newCube = Instantiate(_spawnCube);
+                GameObject newCube;
+
+                switch (j)
+                {
+                    case 0:
+                        newCube = Instantiate(_spawnCubeRight);
+                        break;
+                    case 1:
+                        newCube = Instantiate(_spawnCubeMiddle);
+                        break;
+                    case 2:
+                        newCube = Instantiate(_spawnCubeLeft);
+                        break;
+                    default:
+                        newCube = Instantiate(_spawnCubeMiddle);
+                        break;
+                }
+                
                 offset = new Vector3(j, 0, i);
                 newCube.transform.position = startPosition + offset;
                 lastPosition = newCube.transform.position;

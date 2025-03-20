@@ -44,4 +44,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f73b0793a25eec246bcc555261a071e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _spawnCube: {fileID: 1486330389163142854, guid: 1de6a25ecff92bd4d9a5f1e86d56649e, type: 3}
+  _spawnCubeRight: {fileID: 1486330389163142854, guid: 8bad5eb4282c561409c094e5f00076be, type: 3}
+  _spawnCubeMiddle: {fileID: 1486330389163142854, guid: 1de6a25ecff92bd4d9a5f1e86d56649e, type: 3}
+  _spawnCubeLeft: {fileID: 1486330389163142854, guid: aadadf09a46f3f347a6349edbc3c6240, type: 3}
